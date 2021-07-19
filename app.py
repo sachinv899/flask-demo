@@ -11,12 +11,15 @@ def hello():
 
 @app.route("/getStudent",methods=['POST','GET'])
 def hello_world():
-    x = {
-  "name": "John",
-  "age": 30,
-  "city": "New York"
-}
-    return json.dumps(x)
+    if request.method == 'POST':
+        x = {
+            "name": "John",
+            "age": 30,
+            "city": "New York"
+        }
+        return json.dumps(x)
+    else:
+        return render_template('view.html',test="Net")
 
 if __name__ == "__main__":
     app.run(debug=True)
