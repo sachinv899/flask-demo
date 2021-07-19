@@ -1,11 +1,13 @@
-from flask import Flask,render_template
-import json
+from flask import Flask,render_template,request
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/",methods=['POST','GET'])
 def hello():
+    if request.method == 'POST':
+        return render_template('view.html')
     return render_template('view.html')
+    
 
 # @app.route("/getStudent",methods=['POST','GET'])
 # def hello_world():
