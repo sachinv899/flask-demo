@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello():
     return render_template('view.html')
 
-@app.route("/getStudent")
+@app.route("/getStudent",methods=['POST','GET'])
 def hello_world():
     x = {
   "name": "John",
@@ -16,4 +16,5 @@ def hello_world():
 }
     return json.dumps(x)
 
-app.run()
+if __name__ == "__main__":
+    app.run(debug=True)
